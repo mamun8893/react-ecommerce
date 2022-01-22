@@ -4,17 +4,24 @@ import Home from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Hats from "./components/Hats/Hats";
 import Shop from "./pages/Shop/Shop";
+import Header from "./components/Header/Header";
+import Auth from "./pages/Auth/Auth";
+import AuthProvider from "./context/AuthProvider";
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/hats" element={<Hats />}></Route>
-          <Route path="/shop" element={<Shop />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/hats" element={<Hats />}></Route>
+            <Route path="/shop" element={<Shop />}></Route>
+            <Route path="/signup" element={<Auth />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

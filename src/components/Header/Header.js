@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import useAuth from "../../hooks/useAuth";
+import CartDropdown from "../CartDropdown/CartDropdown";
+import CartIcon from "../CartIcon/CartIcon";
 import "./header.scss";
 
 const Header = () => {
@@ -26,7 +28,9 @@ const Header = () => {
         ) : (
           <Link to="/signup">Signup</Link>
         )}
+        <CartIcon></CartIcon>
       </div>
+      <CartDropdown />
     </div>
   );
 };

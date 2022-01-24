@@ -4,10 +4,12 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import useAuth from "../../hooks/useAuth";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import CartIcon from "../CartIcon/CartIcon";
+import { useSelector } from "react-redux";
 import "./header.scss";
 
 const Header = () => {
   const { user, handleLogout } = useAuth();
+  const hiddenObj = useSelector((state) => state.toggle);
 
   return (
     <div className="header">
@@ -30,7 +32,7 @@ const Header = () => {
         )}
         <CartIcon></CartIcon>
       </div>
-      <CartDropdown />
+      {hiddenObj.hidden ? null : <CartDropdown />}
     </div>
   );
 };

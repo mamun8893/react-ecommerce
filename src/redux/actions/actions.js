@@ -1,6 +1,5 @@
 import { addCartSlice } from "../slices/cartSlice";
 import { cartToggleSlice } from "../slices/slice";
-// const { actions: slice } = cartToggleSlice;
 
 //Toggle Action
 

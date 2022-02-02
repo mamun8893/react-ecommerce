@@ -7,6 +7,7 @@ import Shop from "./pages/Shop/Shop";
 import Header from "./components/Header/Header";
 import Auth from "./pages/Auth/Auth";
 import AuthProvider from "./context/AuthProvider";
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/hats" element={<Hats />}></Route>
             <Route path="/shop" element={<Shop />}></Route>
             <Route path="/signup" element={<Auth />}></Route>
+            <Route path="/checkout" element={<Checkout />}></Route>
           </Routes>
         </BrowserRouter>
       </AuthProvider>

@@ -13,3 +13,7 @@ export const toggleAction = () => (dispatch) => {
 export const addCartAction = (item) => (dispatch) => {
   dispatch(addCartSlice.actions.setAddCart(item));
 };
+
+export const removeCartAction = (item) => (dispatch) => {
+  dispatch(addCartSlice.actions.setRemoveCart(item));
+};

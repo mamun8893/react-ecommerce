@@ -16,3 +16,7 @@ export const addCartAction = (item) => (dispatch) => {
 export const removeCartAction = (item) => (dispatch) => {
   dispatch(addCartSlice.actions.setRemoveCart(item));
 };
+
+export const removeItemAction = (item) => (dispatch) => {
+  dispatch(addCartSlice.actions.setRemoveItem(item));
+};

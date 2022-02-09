@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { Outlet, useParams } from "react-router-dom";
 import CollectionOverview from "../../components/CollectionOverview/CollectionOverview";
-import CollectionPreview from "../../components/CollectionPreview.js/CollectionPreview";
 import useCollection from "../../hooks/useCollection";
-import SHOP_DATA from "./ShopData";
 
 const Shop = () => {
   const [collections] = useCollection();
+  const parms = useParams();
   return (
     <div className="shop-page">
-      <CollectionOverview />
+      {!parms.collectionName && <CollectionOverview />}
+      <Outlet />
     </div>
   );
 };

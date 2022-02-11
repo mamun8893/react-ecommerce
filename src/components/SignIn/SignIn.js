@@ -40,13 +40,13 @@ const SignIn = () => {
           label="Password"
           required
         />
-        <div className="button-group">
+        <div className="button-warp">
           <CustomButton type="submit">submit form</CustomButton>
-          <CustomButton onClick={googleSignin} isGoogleBtn>
-            Google Signin
-          </CustomButton>
         </div>
       </form>
+      <CustomButton onClick={googleSignin} isGoogleBtn>
+        Google Signin
+      </CustomButton>
     </div>
   );
 };

@@ -5,35 +5,35 @@ import useAuth from "../../hooks/useAuth";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import CartIcon from "../CartIcon/CartIcon";
 import { useSelector } from "react-redux";
-import "./header.scss";
+import {
+  HeaderCOntainer,
+  LogoContainer,
+  OptionDiv,
+  OptionLink,
+  OptionsContainer,
+} from "./header-styles";
 
 const Header = () => {
   const { user, handleLogout } = useAuth();
   const hiddenObj = useSelector((state) => state.toggle);
 
   return (
-    <div className="header">
-      <Link to="/" className="logo-container">
+    <HeaderCOntainer>
+      <LogoContainer to="/">
         <Logo className="logo" />
-      </Link>
-      <div className="options">
-        <Link to="/shop" className="option">
-          Shop
-        </Link>
-        <Link to="/contact" className="option">
-          Contact
-        </Link>
+      </LogoContainer>
+      <OptionsContainer>
+        <OptionLink to="/shop">Shop</OptionLink>
+        <OptionLink to="/contact">Contact</OptionLink>
         {user.email ? (
-          <div className="option" onClick={handleLogout}>
-            Logout
-          </div>
+          <OptionDiv onClick={handleLogout}> Logout</OptionDiv>
         ) : (
-          <Link to="/signup">Signup</Link>
+          <OptionLink to="/signup">Signup</OptionLink>
         )}
         <CartIcon></CartIcon>
-      </div>
+      </OptionsContainer>
       {hiddenObj.hidden ? null : <CartDropdown />}
-    </div>
+    </HeaderCOntainer>
   );
 };
 

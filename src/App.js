@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import AuthProvider from "./context/AuthProvider";
 import Spinner from "./components/Spinner/Spinner";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Shop = lazy(() => import("./pages/Shop/Shop"));
@@ -17,17 +18,19 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Header />
-          <Suspense fallback={<Spinner />}>
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
+          <ErrorBoundary>
+            <Suspense fallback={<Spinner />}>
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
 
-              <Route path="shop" element={<Shop />}>
-                <Route path=":collectionName" element={<Collection />} />
-              </Route>
-              <Route path="signup" element={<Auth />}></Route>
-              <Route path="checkout" element={<Checkout />}></Route>
-            </Routes>
-          </Suspense>
+                <Route path="shop" element={<Shop />}>
+                  <Route path=":collectionName" element={<Collection />} />
+                </Route>
+                <Route path="signup" element={<Auth />}></Route>
+                <Route path="checkout" element={<Checkout />}></Route>
+              </Routes>
+            </Suspense>
+          </ErrorBoundary>
         </BrowserRouter>
       </AuthProvider>
     </div>
